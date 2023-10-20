@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Search";
 }
-<h1>@ViewData["Title"]</h1>
+<h1>訪問したレストランやカフェを検索しよう！</h1>
 
 <p class="h4">
     ID:
@@ -11,18 +11,20 @@
 </p>
 
 <form method="post" action="">
-    <label name="Search">Search Restaurants</label>
-    <input name="values" type="text"/>
-    <button type="submit" class="btn btn-primary">Search!</button>
+    <input name="values" type="text" placeholder="田町　焼肉"/>
+    <button type="submit" class="btn btn-primary">検索</button>
 </form>
 
 @if (Model.results != null) { 
 @foreach (var item in Model.results.shop)
 {
-
-    <p>------------------</p>
-    <p>@item.name</p>
-    <p>@item.address</p>
-    <p>------------------</p>
+    <div class="d-flex m-2">
+    <img src="@item.photo.mobile.l">
+    <div>
+            <h2>@item.name</h2>
+            <p>@item.address</p>
+    </div>
+        </div>
+   
 
     } }
