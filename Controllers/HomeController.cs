@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Tabemory.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Net;
+using Newtonsoft.Json;
 
 namespace Tabemory.Controllers
 {
@@ -18,9 +21,31 @@ namespace Tabemory.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        //[Authorize]
+        [HttpGet]
+        public IActionResult Search()
         {
-            return View();
+            Restaurant restaurant = new Restaurant();
+            return View(restaurant);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Search(string[] values)
+        {
+            using (WebClient webClient = new WebClient()) {
+                DotNetEnv.Env.Load(".env");
+                var key = DotNetEnv.Env.GetString("Recruit_API");
+                string keyword = values[0].Replace(" ", "+");
+                keyword = keyword.Replace("　", "+");
+                string url = webClient.DownloadString($"http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key={key}&keyword={keyword}&order=4&format=json");
+
+                var restaurant = JsonConvert.DeserializeObject<Restaurant>(url);
+
+                return View(restaurant);
+
+            }
+               
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

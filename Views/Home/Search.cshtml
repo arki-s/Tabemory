@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Search";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p class="h4">
+    ID:
+    @(User.Identity.Name == null ? "no-data" : User.Identity.Name)
+    @("/" + User.Identity.IsAuthenticated + "/" + User.Identity.AuthenticationType)
+</p>
+
+<form method="post" action="">
+    <label name="Search">Search Restaurants</label>
+    <input name="values" type="text"/>
+    <button type="submit" class="btn btn-primary">Search!</button>
+</form>
+
+@if (Model.results != null) { 
+@foreach (var item in Model.results.shop)
+{
+
+    <p>------------------</p>
+    <p>@item.name</p>
+    <p>@item.address</p>
+    <p>------------------</p>
+
+    } }
