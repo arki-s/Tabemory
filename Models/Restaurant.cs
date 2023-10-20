@@ -9,6 +9,8 @@ namespace Tabemory.Models
 
         public ICollection<Review> Reviews { get; set; }
 
+        public string? ErrMsg { get; set; }
+
         public Results results { get; set; }
 
         public class Results

@@ -15,6 +15,11 @@
     <button type="submit" class="btn btn-primary">検索</button>
 </form>
 
+@if (Model.ErrMsg != null)
+{
+    <h4 class="text-danger">@Model.ErrMsg</h4>
+}
+
 @if (Model.results != null) { 
 @foreach (var item in Model.results.shop)
 {
