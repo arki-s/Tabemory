@@ -20,8 +20,9 @@ namespace Tabemory.Models
 
         public byte[]? Image { get; set; }
 
-        public int RestaurantId { get; set; }
+        public int RecordId { get; set; }
 
-        public Restaurant Restaurant { get; set; }
+        public Record Record { get; set; }
+
     }
 }

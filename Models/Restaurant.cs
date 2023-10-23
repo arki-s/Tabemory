@@ -1,13 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Tabemory.Models
 {
+    [NotMapped]
     public class Restaurant
     {
         [Key]
         public int RestaurantId { get; set; }
-
-        public ICollection<Review> Reviews { get; set; }
 
         public string? ErrMsg { get; set; }
 
@@ -28,9 +29,9 @@ namespace Tabemory.Models
             public string address { get; set; }
             //public string band { get; set; }
             //public string barrier_free { get; set; }
-            public Budget budget { get; set; }
+            //public Budget budget { get; set; }
             //public string budget_memo { get; set; }
-            public int capacity { get; set; }
+            //public int capacity { get; set; }
             //public string card { get; set; }
             //public string _catch { get; set; }
             //public string charter { get; set; }
@@ -78,12 +79,12 @@ namespace Tabemory.Models
             public string wifi { get; set; }
         }
 
-        public class Budget
-        {
-            public string average { get; set; }
-            //public string code { get; set; }
-            //public string name { get; set; }
-        }
+        //public class Budget
+        //{
+        //    public string average { get; set; }
+        //public string code { get; set; }
+        //public string name { get; set; }
+        //}
 
         //public class Coupon_Urls
         //{
@@ -96,6 +97,7 @@ namespace Tabemory.Models
             public string _catch { get; set; }
             //public string code { get; set; }
             public string name { get; set; }
+
         }
 
         //public class Large_Area
@@ -114,10 +116,13 @@ namespace Tabemory.Models
         {
             //public string code { get; set; }
             public string name { get; set; }
+
+
         }
 
         public class Photo
         {
+            //public int PhotoId { get; set; }
             public Mobile mobile { get; set; }
             public Pc pc { get; set; }
         }
@@ -125,14 +130,15 @@ namespace Tabemory.Models
         public class Mobile
         {
             public string l { get; set; }
-            public string s { get; set; }
+            //public string s { get; set; }
         }
 
         public class Pc
         {
             public string l { get; set; }
-            public string m { get; set; }
-            public string s { get; set; }
+            //public string m { get; set; }
+            //public string s { get; set; }
+
         }
 
         //public class Service_Area
@@ -156,6 +162,8 @@ namespace Tabemory.Models
         public class Urls
         {
             public string pc { get; set; }
+
+
         }
 
 
