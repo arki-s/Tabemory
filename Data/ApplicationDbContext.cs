@@ -4,12 +4,17 @@ using Tabemory.Models;
 
 namespace Tabemory.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class TabemoryDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public TabemoryDbContext(DbContextOptions<TabemoryDbContext> options)
             : base(options)
         {
+
         }
+
+        public DbSet<Tabemory.Models.Record> Record { get; set; } = default!;
+
+        public DbSet<Tabemory.Models.Review>? Review { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

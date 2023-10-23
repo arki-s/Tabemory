@@ -25,11 +25,28 @@
 {
     <div class="d-flex m-2">
     <img src="@item.photo.mobile.l">
-    <div>
+        <div>
+
+            <h2>@item.genre._catch</h2>
             <h2>@item.name</h2>
+            <p>ジャンル：@item.genre.name</p>
             <p>@item.address</p>
-    </div>
+            <p>最寄り駅：@item.station_name</p>
+            <form method="post" asp-controller="Records" asp-action="Create">
+                    <input name="items" value="@item.genre._catch" type="hidden" />
+                    <input name="items" value="@item.genre.name" type="hidden" />
+                    <input name="items" value="@item.name" type="hidden" />
+                    <input name="items" value="@item.address" type="hidden" />
+                    <input name="items" value="@item.station_name" type="hidden" />
+                    <input name="items" value="@item.open" type="hidden" />
+                    <input name="items" value="@item.close" type="hidden" />
+                    <input name="items" value="@item.urls.pc" type="hidden" />
+                    <input name="items" value="@item.photo.pc.l" type="hidden" />
+                    <input type="submit" class="btn-btn-primary" value="追加" />
+            </form>
+                
         </div>
+     </div>
    
 
     } }

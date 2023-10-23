@@ -9,7 +9,7 @@ using Tabemory.Data;
 
 namespace Tabemory.Data.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(TabemoryDbContext))]
     [Migration("00000000000000_CreateIdentitySchema")]
     partial class CreateIdentitySchema
     {

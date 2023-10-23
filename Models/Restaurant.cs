@@ -51,14 +51,14 @@ namespace Tabemory.Models
             //public Large_Service_Area large_service_area { get; set; }
             //public float lat { get; set; }
             //public float lng { get; set; }
-            public string logo_image { get; set; }
+            //public string logo_image { get; set; }
             //public string lunch { get; set; }
-            public Middle_Area middle_area { get; set; }
+            //public Middle_Area middle_area { get; set; }
             //public string midnight { get; set; }
-            public string mobile_access { get; set; }
+            //public string mobile_access { get; set; }
             public string name { get; set; }
-            public string name_kana { get; set; }
-            public string non_smoking { get; set; }
+            //public string name_kana { get; set; }
+            //public string non_smoking { get; set; }
             public string open { get; set; }
             //public string other_memo { get; set; }
             //public string parking { get; set; }
@@ -76,7 +76,7 @@ namespace Tabemory.Models
             //public string tv { get; set; }
             public Urls urls { get; set; }
             //public string wedding { get; set; }
-            public string wifi { get; set; }
+            //public string wifi { get; set; }
         }
 
         //public class Budget
@@ -112,13 +112,13 @@ namespace Tabemory.Models
         //    public string name { get; set; }
         //}
 
-        public class Middle_Area
-        {
+        //public class Middle_Area
+        //{
             //public string code { get; set; }
-            public string name { get; set; }
+        //    public string name { get; set; }
 
 
-        }
+        //}
 
         public class Photo
         {

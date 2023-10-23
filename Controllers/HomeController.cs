@@ -21,7 +21,7 @@ namespace Tabemory.Controllers
             return View();
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         public IActionResult Search()
         {
