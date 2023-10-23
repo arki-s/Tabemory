@@ -4,12 +4,6 @@
 }
 <h1>訪問したレストランやカフェを検索しよう！</h1>
 
-<p class="h4">
-    ID:
-    @(User.Identity.Name == null ? "no-data" : User.Identity.Name)
-    @("/" + User.Identity.IsAuthenticated + "/" + User.Identity.AuthenticationType)
-</p>
-
 <form method="post" action="">
     <input name="values" type="text" placeholder="田町　焼肉"/>
     <button type="submit" class="btn btn-primary">検索</button>
@@ -56,7 +50,7 @@
         if (window.confirm('このレストランを登録しますか？')) {
             return true;
         } else {
-            window.alert('キャンセルされました。')
+            window.alert('キャンセルしました。')
             return false;
         }
     }

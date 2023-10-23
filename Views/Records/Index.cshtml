@@ -1,10 +1,26 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity;
+@using System.Security.Claims;
+@model IEnumerable<Tabemory.Models.Record>
+
 @{
+    var loginUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 }
 
-<h1>this is index page for records</h1>
+<h1>登録済レストラン一覧</h1>
 
-<div class="alert alert-success alert-dismissable fade show m-1" role="alert">
-    <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
-    <strong> Success!</strong> @TempData["AlertMessage"]
-</div>
+@if (TempData["AlertMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissable fade show m-1" role="alert">
+        @TempData["AlertMessage"]
+        <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@foreach (var item in Model)
+{
+    @if (item.UserId.Equals(loginUserId))
+    {
+        @* <a asp-action="Details" asp-route-id="@item.RecordId" class="text-center">@Html.DisplayFor(modelItem => item.Name)</a> *@
+        <p>@Html.DisplayFor(modelItem => item.Name)</p>
+    }   
+}

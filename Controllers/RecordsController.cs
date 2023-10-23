@@ -22,8 +22,9 @@ namespace Tabemory.Controllers
         [Authorize]
         public async Task<IActionResult> Index()
         {
-            
-            return View();
+            return _context.Record != null ?
+                         View(await _context.Record.ToListAsync()) :
+                         Problem("Entity set 'CookingRecipesContext.Recipe'  is null.");
         }
 
 
@@ -62,7 +63,7 @@ namespace Tabemory.Controllers
             {
                 _context.Add(record);
                 await _context.SaveChangesAsync();
-                TempData["AlertMessage"] = "新しいレストランを登録しました！";
+                TempData["AlertMessage"] = "新しいレストランを登録しました。";
                 return RedirectToAction(nameof(Index));
             }
 
