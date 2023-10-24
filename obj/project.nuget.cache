@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "HuWxIVN9xdCAHgjJ/VEcpLhXuT5RyPSvbsRr8bW5JecBZgrPyH9kNMA2dG+SIhcmBahCRFg/2VbwEvvylGJwPQ==",
+  "dgSpecHash": "VMoiKggWuBSREf4edyS6hVPgExoHlrablClJaI2bci9r7L1yJvIR+5pvx4N41YDCB3cAwf1KbpGM2KwHfEzdhQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\wind1\\source\\repos\\arki-s\\Tabemory\\Tabemory.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\wind1\\.nuget\\packages\\buildwebcompiler\\1.12.405\\buildwebcompiler.1.12.405.nupkg.sha512",
     "C:\\Users\\wind1\\.nuget\\packages\\dotnetenv\\2.5.0\\dotnetenv.2.5.0.nupkg.sha512",
     "C:\\Users\\wind1\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\wind1\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

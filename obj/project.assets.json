@@ -2,6 +2,12 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "BuildWebCompiler/1.12.405": {
+        "type": "package",
+        "build": {
+          "build/BuildWebCompiler.targets": {}
+        }
+      },
       "DotNetEnv/2.5.0": {
         "type": "package",
         "dependencies": {
@@ -3963,6 +3969,29 @@
     }
   },
   "libraries": {
+    "BuildWebCompiler/1.12.405": {
+      "sha512": "1l1RK0jV+5QjJM22J5IGHm/EFaB3JN0WorKnLLP6HRnnf5H4sU4IBdBnMwN1OrVmww/3ir8fhbV0ZNGX6Uqn5w==",
+      "type": "package",
+      "path": "buildwebcompiler/1.12.405",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/BuildWebCompiler.targets",
+        "buildwebcompiler.1.12.405.nupkg.sha512",
+        "buildwebcompiler.nuspec",
+        "tools/net46/NUglify.dll",
+        "tools/net46/Newtonsoft.Json.dll",
+        "tools/net46/WebCompiler.exe",
+        "tools/netcoreapp2.0/NUglify.dll",
+        "tools/netcoreapp2.0/Newtonsoft.Json.dll",
+        "tools/netcoreapp2.0/WebCompiler.dll",
+        "tools/netcoreapp2.0/WebCompiler.runtimeconfig.json",
+        "tools/netstandard2.0/NUglify.dll",
+        "tools/netstandard2.0/Newtonsoft.Json.dll",
+        "tools/netstandard2.0/WebCompiler.dll"
+      ]
+    },
     "DotNetEnv/2.5.0": {
       "sha512": "BjRAEr3fBXo0+1rbC5Z1NTcYH2z+qnjROXKisR78VtL87UAlseelvg0N3aMAk5Bexuph13IKEmxVk5b9CrpdWw==",
       "type": "package",
@@ -11246,6 +11275,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "BuildWebCompiler >= 1.12.405",
       "DotNetEnv >= 2.5.0",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 6.0.21",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.21",
@@ -11300,6 +11330,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "BuildWebCompiler": {
+            "target": "Package",
+            "version": "[1.12.405, )"
+          },
           "DotNetEnv": {
             "target": "Package",
             "version": "[2.5.0, )"

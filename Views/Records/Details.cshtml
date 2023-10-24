@@ -5,6 +5,8 @@
 @{
     ViewData["Title"] = "Details";
     var loginUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+    DotNetEnv.Env.Load(".env");
+    var key = DotNetEnv.Env.GetString("MAPBOX_API_KEY");
 }
 
 @if (Model.UserId != loginUserId)
