@@ -1,5 +1,11 @@
+
 html {
-    font-size: 14px;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    font-family: Century;
 }
 
 @media (min-width: 768px) {
@@ -8,11 +14,36 @@ html {
     }
 }
 
-html {
-    position: relative;
-    min-height: 100%;
+.title span{
+    transition: 1s;
+    opacity: 0;
+    transform: translateY(20px);
+    display: block;
 }
 
-body {
-    margin-bottom: 60px;
+.title span:first-child {
+    animation: title_anime 1.4s forwards 1s;
 }
+
+.home {
+    position: absolute;
+    top: 50%;
+
+    h1 {
+        color: white;
+        font-size: 72px;
+    }
+}
+
+@keyframes title_anime {
+    0% {
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WpP6Wa1FmIKrSpv1qInTpgwaFU60M4rhPsr3ai4+ZmI=",
+  "Hash": "m7ziwMCH5yclaEltXiAMSe5DdLYfLZGX2JcHHGwKQNU=",
   "Source": "Tabemory",
   "BasePath": "_content/Tabemory",
   "Mode": "Default",
@@ -1868,6 +1868,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\font-awesome\\webfonts\\fa-v4compatibility.woff2"
+    },
+    {
+      "Identity": "C:\\Users\\wind1\\source\\repos\\arki-s\\Tabemory\\wwwroot\\images\\coffee.png",
+      "SourceId": "Tabemory",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\wind1\\source\\repos\\arki-s\\Tabemory\\wwwroot\\",
+      "BasePath": "_content/Tabemory",
+      "RelativePath": "images/coffee.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\coffee.png"
+    },
+    {
+      "Identity": "C:\\Users\\wind1\\source\\repos\\arki-s\\Tabemory\\wwwroot\\images\\terrace.jpg",
+      "SourceId": "Tabemory",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\wind1\\source\\repos\\arki-s\\Tabemory\\wwwroot\\",
+      "BasePath": "_content/Tabemory",
+      "RelativePath": "images/terrace.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\terrace.jpg"
     },
     {
       "Identity": "C:\\Users\\wind1\\source\\repos\\arki-s\\Tabemory\\wwwroot\\js\\site.js",

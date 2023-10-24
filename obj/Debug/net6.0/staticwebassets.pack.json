@@ -193,6 +193,14 @@
       "PackagePath": "staticwebassets\\font-awesome\\webfonts\\fa-v4compatibility.woff2"
     },
     {
+      "Id": "C:\\Users\\wind1\\source\\repos\\arki-s\\Tabemory\\wwwroot\\images\\coffee.png",
+      "PackagePath": "staticwebassets\\images\\coffee.png"
+    },
+    {
+      "Id": "C:\\Users\\wind1\\source\\repos\\arki-s\\Tabemory\\wwwroot\\images\\terrace.jpg",
+      "PackagePath": "staticwebassets\\images\\terrace.jpg"
+    },
+    {
       "Id": "C:\\Users\\wind1\\source\\repos\\arki-s\\Tabemory\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

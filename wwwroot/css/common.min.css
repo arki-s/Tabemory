@@ -1,1 +1,1 @@
-﻿html{font-size:14px;}@media(min-width:768px){html{font-size:16px;}}html{position:relative;min-height:100%;}body{margin-bottom:60px;}
+﻿html{height:100%;}body{height:100%;font-family:Century;}@media(min-width:768px){html{font-size:16px;}}.title span{transition:1s;opacity:0;transform:translateY(20px);display:block;}.title span:first-child{animation:title_anime 1.4s forwards 1s;}.home{position:absolute;top:50%;}.home h1{color:#fff;font-size:72px;}@keyframes title_anime{0%{transform:translateY(20px);}100%{opacity:1;transform:translateY(0);}}

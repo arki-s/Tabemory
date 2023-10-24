@@ -25,11 +25,6 @@ namespace Tabemory.Data
                 .WithMany(e => e.Records)
                 .OnDelete(DeleteBehavior.ClientCascade);
 
-            builder.Entity<Review>()
-                .HasOne(e => e.Record)
-                .WithMany(e => e.Reviews)
-                .OnDelete(DeleteBehavior.ClientCascade);
-
         }
 
 

@@ -203,7 +203,7 @@ namespace Tabemory.Controllers
         {
             if (_context.Record == null)
             {
-                return Problem("Entity set 'CookingRecipesContext.Recipe'  is null.");
+                return Problem("Entity set 'TabemoryDbContext.Recipe'  is null.");
             }
             var record = await _context.Record.FindAsync(value[0]);
             if (record != null)
