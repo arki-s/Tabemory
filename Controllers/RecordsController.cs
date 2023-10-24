@@ -87,6 +87,27 @@ namespace Tabemory.Controllers
             return View(record);
 
         }
+
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int[] value)
+        {
+            if (_context.Record == null)
+            {
+                return Problem("Entity set 'CookingRecipesContext.Recipe'  is null.");
+            }
+            var record = await _context.Record.FindAsync(value[0]);
+            if (record != null)
+            {
+                _context.Record.Remove(record);
+                TempData["AlertMessage"] = "選択したレストランを削除しました。";
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }
 
