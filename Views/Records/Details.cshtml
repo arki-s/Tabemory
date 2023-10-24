@@ -1,4 +1,4 @@
-﻿@model Tabemory.Models.Record;
+﻿@model Tabemory.ViewModels.RecordReview;
 @using Microsoft.AspNetCore.Identity;
 @using System.Security.Claims;
 
@@ -9,18 +9,78 @@
     var key = DotNetEnv.Env.GetString("MAPBOX_API_KEY");
 }
 
-@if (Model.UserId != loginUserId)
+@if (Model.Record.UserId != loginUserId)
 {
     <h1 class="text-danger">アクセス権がありません。</h1>
 } else
 {
-    <h1>@Html.DisplayFor(model => model.Name)</h1>
-    <p>@Html.DisplayFor(model => model.Station_name)</p>
+    <h1>@Html.DisplayFor(model => model.Record.Name)</h1>
+    <p>@Html.DisplayFor(model => model.Record.Station_name)</p>
     <form method="post" asp-action="Delete" onSubmit="return check()">
-        <input type="hidden" name="value" value="@Model.RecordId" />
+        <input type="hidden" name="value" value="@Model.Record.RecordId" />
         <input type="submit" value="削除" class="btn btn-primary" />
     </form>
 }
+
+
+<h3>レビュー</h3>
+
+@if (Model.ReviewList.Count > 0)
+{
+    <ul>
+        @foreach (var item in Model.ReviewList)
+        {
+            string stars = new String('★', item.Rating);
+            <li class="fw-bold">
+                @item.VisitDate --
+                @stars --
+                @item.Comment
+                @item.Image
+            </li>
+        }
+    </ul>
+
+}
+else
+{
+    <p>まだレビューはありません。</p>
+}
+
+<h4>レビューを追加しよう！</h4>
+
+<form method="POST" action="">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label name="VisitDate" class="control-label">訪問日</label>
+        <input name="values" type="date" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label name="values" class="control-label">レーティング</label>
+        <br>
+        <input name="values" type="radio" value="1" /> 1
+        <input name="values" type="radio" value="2" /> 2
+        <input name="values" type="radio" value="3" checked /> 3
+        <input name="values" type="radio" value="4" /> 4
+        <input name="values" type="radio" value="5" /> 5
+    </div>
+    <div class="form-group">
+        <label name="Comment" class="control-label">コメント</label>
+        <textarea name="values" class="form-control" placeholder="ここにコメントを記載してください。"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label name="Image" class="control-label">画像（あれば）</label>
+        <input name="values" type="file" class="form-control"/>
+    </div>
+
+    <input name="values" class="form-control" type="hidden" value="@Model.Record.RecordId">
+
+    <div class="form-group">
+        <input type="submit" value="レビュー追加" class="btn btn-success" />
+    </div>
+</form>
+
+
 
 <script>
     function check() {

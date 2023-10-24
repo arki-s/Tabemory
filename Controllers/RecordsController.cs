@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using Tabemory.Data;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
+using Tabemory.ViewModels;
+using System.Text;
 
 namespace Tabemory.Controllers
 {
@@ -70,6 +72,8 @@ namespace Tabemory.Controllers
             return View(record);
         }
 
+        [Authorize]
+        [HttpGet]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Record == null)
@@ -77,14 +81,122 @@ namespace Tabemory.Controllers
                 return NotFound();
             }
 
-            var record = await _context.Record
+            var record = await _context.Record.Include("Reviews")
                 .FirstOrDefaultAsync(m => m.RecordId == id);
             if (record == null)
             {
                 return NotFound();
             }
 
-            return View(record);
+            var recordView = new Record()
+            {
+                RecordId = record.RecordId,
+                Name = record.Name,
+                Address = record.Address,
+                Station_name = record.Station_name,
+                Genre_catch = record.Genre_catch,
+                Genre_name = record.Genre_name,
+                Open = record.Open,
+                Close = record.Close,
+                Photo = record.Photo,
+                UserId = record.UserId
+             };
+
+            var reviewList = new List<Review>();
+
+            if (record.Reviews.Count > 0)
+            {
+                foreach (var item in record.Reviews)
+                {
+                    reviewList.Add(new Review
+                    {
+                        ReviewId = item.ReviewId,
+                        VisitDate = item.VisitDate,
+                        Rating = item.Rating,
+                        Comment = item.Comment,
+                        Image = item.Image,
+                    });
+                }
+            }
+
+            var recordreview = new RecordReview() {
+                Record = recordView,
+                ReviewList = reviewList,
+                Review = new Review()
+            };
+
+            return View(recordreview);
+
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Details(int? id, RecordReview model, string[] values)
+        {
+            var encording = Encoding.GetEncoding("UTF-8");
+            var image = encording.GetBytes(values[3]);
+
+            var review = new Review()
+            {
+                VisitDate = DateTime.Parse(values[0]),
+                Rating = int.Parse(values[1]),
+                Comment = values[2],
+                Image = image,
+                RecordId = int.Parse(values[4])
+            };
+
+            _context.Add(review);
+            await _context.SaveChangesAsync();
+
+            if (id == null || _context.Record == null)
+            {
+                return NotFound();
+            }
+
+            var record = await _context.Record.Include("Reviews")
+                .FirstOrDefaultAsync(m => m.RecordId == id);
+            if (record == null)
+            {
+                return NotFound();
+            }
+
+            var recordView = new Record()
+            {
+                RecordId = record.RecordId,
+                Name = record.Name,
+                Address = record.Address,
+                Station_name = record.Station_name,
+                Genre_catch = record.Genre_catch,
+                Genre_name = record.Genre_name,
+                Open = record.Open,
+                Close = record.Close,
+                Photo = record.Photo,
+                UserId = record.UserId
+            };
+
+            var reviewList = new List<Review>();
+
+            if (record.Reviews.Count > 0)
+            {
+                foreach (var item in record.Reviews)
+                {
+                    reviewList.Add(new Review
+                    {
+                        ReviewId = item.ReviewId,
+                        VisitDate = item.VisitDate,
+                        Rating = item.Rating,
+                        Comment = item.Comment,
+                        Image = item.Image,
+                    });
+                }
+            }
+
+            model.Record = recordView;
+            model.ReviewList = reviewList;
+            model.Review = review;
+
+            return View(model);
 
         }
 
