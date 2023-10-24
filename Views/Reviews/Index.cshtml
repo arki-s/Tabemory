@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Tabemory.Models.Review>;
+@using Microsoft.AspNetCore.Identity;
+@using System.Security.Claims;
+
+@{
+    ViewData["Title"] = "Index";
+    var loginUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+}
+
+@if (TempData["AlertMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissable fade show m-1" role="alert">
+        @TempData["AlertMessage"]
+        <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VisitDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Record)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (item.Record.UserId == loginUserId) { 
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VisitDate)
+                </td>
+                <td>
+                    @{
+                        string stars = new String('★', item.Rating);
+                    }
+                    @stars
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Record.Name)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ReviewId"><i class="fa-solid fa-pen" style="color: #50e196; font-size:24px; margin-right:12px;"></i></a>
+                        <form asp-controller="Reviews" asp-action="Delete" onSubmit="return check()">
+                            <input type="hidden" name="id" value="@item.ReviewId" />
+                            <input type="submit" value="削除" class="btn btn-primary" />
+                        </form>
+                </td>
+            </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<script>
+    function check() {
+        if (window.confirm('このレビューを登録しますか？')) {
+            return true;
+        } else {
+            window.alert('キャンセルしました。')
+            return false;
+        }
+    }
+</script>

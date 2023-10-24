@@ -113,8 +113,7 @@ namespace Tabemory.Controllers
                         ReviewId = item.ReviewId,
                         VisitDate = item.VisitDate,
                         Rating = item.Rating,
-                        Comment = item.Comment,
-                        Image = item.Image,
+                        Comment = item.Comment
                     });
                 }
             }
@@ -134,16 +133,13 @@ namespace Tabemory.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Details(int? id, RecordReview model, string[] values)
         {
-            var encording = Encoding.GetEncoding("UTF-8");
-            var image = encording.GetBytes(values[3]);
 
             var review = new Review()
             {
                 VisitDate = DateTime.Parse(values[0]),
                 Rating = int.Parse(values[1]),
                 Comment = values[2],
-                Image = image,
-                RecordId = int.Parse(values[4])
+                RecordId = int.Parse(values[3])
             };
 
             _context.Add(review);
