@@ -69,7 +69,26 @@ namespace Tabemory.Controllers
 
             return View(record);
         }
-    } }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null || _context.Record == null)
+            {
+                return NotFound();
+            }
+
+            var record = await _context.Record
+                .FirstOrDefaultAsync(m => m.RecordId == id);
+            if (record == null)
+            {
+                return NotFound();
+            }
+
+            return View(record);
+
+        }
+    }
+}
 
 
 

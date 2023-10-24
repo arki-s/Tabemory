@@ -20,7 +20,7 @@
 {
     @if (item.UserId.Equals(loginUserId))
     {
-        @* <a asp-action="Details" asp-route-id="@item.RecordId" class="text-center">@Html.DisplayFor(modelItem => item.Name)</a> *@
-        <p>@Html.DisplayFor(modelItem => item.Name)</p>
+        <a asp-action="Details" asp-route-id="@item.RecordId" class="text-center">@Html.DisplayFor(modelItem => item.Name)</a>
+        <p>@Html.DisplayFor(modelItem => item.Address)</p>
     }   
 }

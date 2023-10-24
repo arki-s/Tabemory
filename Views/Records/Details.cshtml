@@ -1,0 +1,17 @@
+﻿@model Tabemory.Models.Record;
+@using Microsoft.AspNetCore.Identity;
+@using System.Security.Claims;
+
+@{
+    ViewData["Title"] = "Details";
+    var loginUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+}
+
+@if (Model.UserId != loginUserId)
+{
+    <h1 class="text-danger">アクセス権がありません。</h1>
+} else
+{
+    <h1>@Html.DisplayFor(model => model.Name)</h1>
+    <p>@Html.DisplayFor(model => model.Station_name)</p>
+}
