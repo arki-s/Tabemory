@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Search";
 }
-<h1>訪問したレストランやカフェを検索しよう！</h1>
+<h1 class="text-light">訪問したレストランやカフェを検索しましょう</h1>
 
 <form method="post" action="">
     <input name="values" type="text" placeholder="田町　焼肉"/>
@@ -44,6 +44,18 @@
    
 
     } }
+
+<style>
+    html, body {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0,0,0,0.3)), url(../images/salzburg.jpg);
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: 100%;
+    }
+
+</style>
 
 <script>
     function check() {

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "m7ziwMCH5yclaEltXiAMSe5DdLYfLZGX2JcHHGwKQNU=",
+  "Hash": "80X0ByTv0QvusrZ+1YvJUZIYJzq9QoCrppxvSR/ByXc=",
   "Source": "Tabemory",
   "BasePath": "_content/Tabemory",
   "Mode": "Default",
@@ -1870,6 +1870,23 @@
       "OriginalItemSpec": "wwwroot\\font-awesome\\webfonts\\fa-v4compatibility.woff2"
     },
     {
+      "Identity": "C:\\Users\\wind1\\source\\repos\\arki-s\\Tabemory\\wwwroot\\images\\basel.jpg",
+      "SourceId": "Tabemory",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\wind1\\source\\repos\\arki-s\\Tabemory\\wwwroot\\",
+      "BasePath": "_content/Tabemory",
+      "RelativePath": "images/basel.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\basel.jpg"
+    },
+    {
       "Identity": "C:\\Users\\wind1\\source\\repos\\arki-s\\Tabemory\\wwwroot\\images\\coffee.png",
       "SourceId": "Tabemory",
       "SourceType": "Discovered",
@@ -1885,6 +1902,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\coffee.png"
+    },
+    {
+      "Identity": "C:\\Users\\wind1\\source\\repos\\arki-s\\Tabemory\\wwwroot\\images\\salzburg.jpg",
+      "SourceId": "Tabemory",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\wind1\\source\\repos\\arki-s\\Tabemory\\wwwroot\\",
+      "BasePath": "_content/Tabemory",
+      "RelativePath": "images/salzburg.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\salzburg.jpg"
     },
     {
       "Identity": "C:\\Users\\wind1\\source\\repos\\arki-s\\Tabemory\\wwwroot\\images\\terrace.jpg",
