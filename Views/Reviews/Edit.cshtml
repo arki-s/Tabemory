@@ -5,44 +5,53 @@
 @{
     var loginUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 }
-
-    <h1>Edit</h1>
-
-    <h4>Review</h4>
-    <hr />
-    <div class="row">
-        <div class="col-md-4">
+<div class="contents-container">
+    <h1 class="page-title">レビュー編集</h1>
+<div class="detail-container">
+    
+    <div class="p-3">
             <form asp-action="Edit">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="ReviewId" />
-                <div class="form-group">
-                    <label asp-for="VisitDate" class="control-label"></label>
+                <div class="form-group p-1">
+                    <label name="VisitDate" class="control-label">訪問日</label>
                     <input asp-for="VisitDate" class="form-control" />
                     <span asp-validation-for="VisitDate" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <label asp-for="Rating" class="control-label"></label>
+                <div class="form-group p-1">
+                    <label name="Rating" class="control-label">レーティング</label>
                     <input asp-for="Rating" class="form-control" />
                     <span asp-validation-for="Rating" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <label asp-for="Comment" class="control-label"></label>
+                <div class="form-group p-1">
+                    <label name="Comment" class="control-label">コメント</label>
                     <input asp-for="Comment" class="form-control" />
                     <span asp-validation-for="Comment" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <label asp-for="RecordId" class="control-label"></label>
+                <div class="form-group p-1">
+                    <label name="RecordId" class="control-label">レストラン名</label>
                     <select asp-for="RecordId" class="form-control" asp-items="ViewBag.RecordId"></select>
                     <span asp-validation-for="RecordId" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <input type="submit" value="Save" class="btn btn-primary" />
+                <div class="form-group p-1">
+                    <input type="submit" value="保存" class="btn btn-warning" />
                 </div>
             </form>
+    </div>
+    <div class="text-center">
+        <a asp-action="Index">Back to List</a>
         </div>
     </div>
+</div>
 
-    <div>
-        <a asp-action="Index">Back to List</a>
-    </div>
+<style>
+    html, body {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0,0,0,0.3)), url(/images/book.jpg);
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: 100%;
+    }
 
+</style>

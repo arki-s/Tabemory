@@ -17,9 +17,6 @@
     </div>
 }
 
-
-
-
         @foreach (var item in Model)
         {
         @if (item.Record.UserId == loginUserId) {
@@ -48,7 +45,6 @@
             }
         }
 
-
 </div>
 
 <style>
@@ -65,7 +61,7 @@
 
 <script>
     function check() {
-        if (window.confirm('このレビューを登録しますか？')) {
+        if (window.confirm('このレビューを削除しますか？')) {
             return true;
         } else {
             window.alert('キャンセルしました。')
