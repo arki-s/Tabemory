@@ -21,8 +21,10 @@
 {
     @if (item.UserId.Equals(loginUserId))
     {
-        <a asp-action="Details" asp-route-id="@item.RecordId" class="text-center">@Html.DisplayFor(modelItem => item.Name)</a>
-        <p>@Html.DisplayFor(modelItem => item.Address)</p>
+        <div class="restaurant-card">
+                <h4 class="fw-bold"><a asp-action="Details" asp-route-id="@item.RecordId" class="text-center">@Html.DisplayFor(modelItem => item.Name)</a></h4>
+                <p class="fw-bold">@Html.DisplayFor(modelItem => item.Genre_name)</p>
+        </div>
     }   
 }
 

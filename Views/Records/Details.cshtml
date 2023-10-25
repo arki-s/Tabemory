@@ -1,7 +1,6 @@
 ﻿@model Tabemory.ViewModels.RecordReview;
 @using Microsoft.AspNetCore.Identity;
 @using System.Security.Claims;
-@using System.Drawing.Imaging;
 
 @{
     ViewData["Title"] = "Details";
@@ -10,83 +9,114 @@
     var key = DotNetEnv.Env.GetString("MAPBOX_API_KEY");
 }
 <div class="contents-container">
+    <div class="detail-container">
 @if (Model.Record.UserId != loginUserId)
 {
     <h1 class="text-danger">アクセス権がありません。</h1>
 } else
-{   
-    <p>@Html.DisplayFor(model => model.Record.Genre_catch)</p>
-    <h1>@Html.DisplayFor(model => model.Record.Name)</h1>
-        <img src="@Html.DisplayFor(model => model.Record.Photo)">
-    <p>ジャンル：@Html.DisplayFor(model => model.Record.Genre_name)</p>
-    <p>最寄り駅：@Html.DisplayFor(model => model.Record.Station_name)</p>
+{   <div class="title-container">
+            <img src="@Html.DisplayFor(model => model.Record.Photo)">
+            <div>
+            <p>@Html.DisplayFor(model => model.Record.Genre_catch)</p>
+            <h1>@Html.DisplayFor(model => model.Record.Name)</h1>
+                <p>ジャンル：@Html.DisplayFor(model => model.Record.Genre_name)</p>
+                <p>最寄り駅：@Html.DisplayFor(model => model.Record.Station_name)</p>
+            </div>
+    </div>
+    
+    <div class="contents-box">
     <p>住所：@Html.DisplayFor(model => model.Record.Address)</p>
     <p>営業日：@Html.DisplayFor(model => model.Record.Open)</p>
     <p>定休日：@Html.DisplayFor(model => model.Record.Close)</p>
     <p>URL：@Html.DisplayFor(model => model.Record.Url)</p>
+    <div class="float-end">
     <form method="post" asp-action="Delete" onSubmit="return check()">
         <input type="hidden" name="value" value="@Model.Record.RecordId" />
         <input type="submit" value="削除" class="btn btn-warning" />
     </form>
+            </div>
+     </div>
 }
 
+<div class="contents-box">
+        <h3 class="mt-3">レビュー</h3>
 
-<h3>レビュー</h3>
-
-@if (Model.ReviewList.Count > 0)
-{
-    <ul>
-        @foreach (var item in Model.ReviewList)
+        @if (Model.ReviewList.Count > 0)
         {
-            string stars = new String('★', item.Rating);
-            <li class="fw-bold">
-                @item.VisitDate.Month
-                月
-                @item.VisitDate.Day
-                日 --
-                @stars --
-                @item.Comment
-            </li>
-            <form asp-controller="Reviews" asp-action="Delete" onSubmit="return checkR()">
-                <input type="hidden" name="id" value="@item.ReviewId" />
-                <input type="submit" value="削除" class="btn btn-warning" />
-            </form>
+            
+                @foreach (var item in Model.ReviewList)
+                {
+                    string stars = new String('★', item.Rating);
+                    <div class="fw-bold d-flex justify-content-between p-1">
+                        <div>
+                        @item.VisitDate.Month
+                        月
+                        @item.VisitDate.Day
+                        日 --
+                        @stars --
+                        @item.Comment
+                        </div>
+                        
+                        <div>
+                        <form asp-controller="Reviews" asp-action="Delete" onSubmit="return checkR()">
+                            <input type="hidden" name="id" value="@item.ReviewId" />
+                            <input type="submit" value="削除" class="btn btn-warning" />
+                        </form>
+                        </div>
+                        
+                    </div>
+                    
+                }
+            
+
         }
-    </ul>
+        else
+        {
+            <p>まだレビューはありません。</p>
+        }
 
-}
-else
-{
-    <p>まだレビューはありません。</p>
-}
+        <h4 class="mt-3">レビューを追加しましょう</h4>
 
-<h4>レビューを追加しよう！</h4>
-
-<form method="POST" action="">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <div class="form-group">
-        <label name="VisitDate" class="control-label">訪問日</label>
-        <input name="values" type="date" class="form-control"/>
+        <form method="POST" action="">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group p-1">
+                <label name="VisitDate" class="control-label">訪問日</label>
+                <input name="values" type="date" class="form-control" />
+            </div>
+            <div class="form-group p-1">
+                <label name="values" class="control-label">レーティング</label>
+                <br>
+                <input name="values" type="radio" value="1" /> 1
+                <input name="values" type="radio" value="2" /> 2
+                <input name="values" type="radio" value="3" checked /> 3
+                <input name="values" type="radio" value="4" /> 4
+                <input name="values" type="radio" value="5" /> 5
+            </div>
+            <div class="form-group p-1">
+                <label name="Comment" class="control-label">コメント</label>
+                <textarea name="values" class="form-control" placeholder="ここにコメントを記載してください。"></textarea>
+            </div>
+            <input name="values" class="form-control p-1" type="hidden" value="@Model.Record.RecordId">
+            <div class="form-group p-1">
+                <input type="submit" value="レビュー追加" class="btn btn-warning" />
+            </div>
+        </form>
     </div>
-    <div class="form-group">
-        <label name="values" class="control-label">レーティング</label>
-        <br>
-        <input name="values" type="radio" value="1" /> 1
-        <input name="values" type="radio" value="2" /> 2
-        <input name="values" type="radio" value="3" checked /> 3
-        <input name="values" type="radio" value="4" /> 4
-        <input name="values" type="radio" value="5" /> 5
     </div>
-    <div class="form-group">
-        <label name="Comment" class="control-label">コメント</label>
-        <textarea name="values" class="form-control" placeholder="ここにコメントを記載してください。"></textarea>
-    </div>
-    <input name="values" class="form-control" type="hidden" value="@Model.Record.RecordId">
-    <div class="form-group">
-        <input type="submit" value="レビュー追加" class="btn btn-warning" />
-    </div>
-</form>
 </div>
+
+<style>
+    html, body {
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0,0,0,0.3)), url(../images/croatia.jpg);
+        height: 100%;
+    }
+
+</style>
+
 
 <script>
     function check() {
@@ -107,3 +137,4 @@ else
         }
     }
 </script>
+
