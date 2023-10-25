@@ -32,7 +32,7 @@
     <div class="float-end">
     <form method="post" asp-action="Delete" onSubmit="return check()">
         <input type="hidden" name="value" value="@Model.Record.RecordId" />
-        <input type="submit" value="削除" class="btn btn-warning" />
+        <input type="submit" value="お店を削除" class="btn btn-warning" />
     </form>
             </div>
      </div>
@@ -60,7 +60,7 @@
                         <div>
                         <form asp-controller="Reviews" asp-action="Delete" onSubmit="return checkR()">
                             <input type="hidden" name="id" value="@item.ReviewId" />
-                            <input type="submit" value="削除" class="btn btn-warning" />
+                            <input type="submit" value="レビューを削除" class="btn btn-warning" />
                         </form>
                         </div>
                         
@@ -98,7 +98,7 @@
             </div>
             <input name="values" class="form-control p-1" type="hidden" value="@Model.Record.RecordId">
             <div class="form-group p-1">
-                <input type="submit" value="レビュー追加" class="btn btn-warning" />
+                <input type="submit" value="レビューを追加" class="btn btn-warning" />
             </div>
         </form>
     </div>
