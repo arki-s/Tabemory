@@ -6,7 +6,8 @@
     var loginUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 }
 
-<h1 class="text-light">登録済みレストラン一覧</h1>
+<div class="contents-container">
+<h1 class="page-title">登録済みレストラン一覧</h1>
 
 @if (TempData["AlertMessage"] != null)
 {
@@ -24,6 +25,8 @@
         <p>@Html.DisplayFor(modelItem => item.Address)</p>
     }   
 }
+
+</div>
 
 <style>
     html, body {

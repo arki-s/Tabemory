@@ -2,12 +2,17 @@
 @{
     ViewData["Title"] = "Search";
 }
-<h1 class="text-light">訪問したレストランやカフェを検索しましょう</h1>
 
-<form method="post" action="">
-    <input name="values" type="text" placeholder="田町　焼肉"/>
-    <button type="submit" class="btn btn-primary">検索</button>
-</form>
+<div class="contents-container">
+<h1 class="page-title">訪問したレストランを検索しましょう</h1>
+
+<div class="m-4">
+    <form method="post" action="">
+        <input name="values" type="text" placeholder="田町　焼肉" />
+        <button type="submit" class="btn btn-warning">検索</button>
+    </form>
+</div>
+
 
 @if (Model.ErrMsg != null)
 {
@@ -17,33 +22,34 @@
 @if (Model.results != null) { 
 @foreach (var item in Model.results.shop)
 {
-    <div class="d-flex m-2">
+    <div class="card-product">
     <img src="@item.photo.mobile.l">
-        <div>
-
-            <h2>@item.genre._catch</h2>
-            <h2>@item.name</h2>
-            <p>ジャンル：@item.genre.name</p>
+        <div class="card-product-infos">
+            <p>@item.genre._catch @item.name</p>
+            <p>ジャンル：@item.genre.name  最寄り駅：@item.station_name</p>
             <p>@item.address</p>
-            <p>最寄り駅：@item.station_name</p>
-            <form method="post" asp-controller="Records" asp-action="Create" onSubmit="return check()">
-                    <input name="items" value="@item.genre._catch" type="hidden" />
-                    <input name="items" value="@item.genre.name" type="hidden" />
-                    <input name="items" value="@item.name" type="hidden" />
-                    <input name="items" value="@item.address" type="hidden" />
-                    <input name="items" value="@item.station_name" type="hidden" />
-                    <input name="items" value="@item.open" type="hidden" />
-                    <input name="items" value="@item.close" type="hidden" />
-                    <input name="items" value="@item.urls.pc" type="hidden" />
-                    <input name="items" value="@item.photo.pc.l" type="hidden" />
-                    <input type="submit" class="btn-btn-primary" value="追加" />
-            </form>
-                
-        </div>
+            </div>
+            <div class="form-container">
+                    <form method="post" asp-controller="Records" asp-action="Create" onSubmit="return check()">
+                        <input name="items" value="@item.genre._catch" type="hidden" />
+                        <input name="items" value="@item.genre.name" type="hidden" />
+                        <input name="items" value="@item.name" type="hidden" />
+                        <input name="items" value="@item.address" type="hidden" />
+                        <input name="items" value="@item.station_name" type="hidden" />
+                        <input name="items" value="@item.open" type="hidden" />
+                        <input name="items" value="@item.close" type="hidden" />
+                        <input name="items" value="@item.urls.pc" type="hidden" />
+                        <input name="items" value="@item.photo.pc.l" type="hidden" />
+                        <input type="submit" class="btn btn-warning" value="追加" />
+                    </form>
+            </div>
+        
      </div>
    
 
     } }
+
+</div>
 
 <style>
     html, body {
