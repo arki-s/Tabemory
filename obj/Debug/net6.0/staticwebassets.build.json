@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "IVmo7AGYR/FyOZGu2kfopXfiz5+Ja6N5PIH1D5br7y8=",
+  "Hash": "vX+Y6AVFqxPf/mOn6yKvUjT22kBsSc7sBCdeZ3izays=",
   "Source": "Tabemory",
   "BasePath": "_content/Tabemory",
   "Mode": "Default",
@@ -1885,6 +1885,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\basel.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\wind1\\source\\repos\\arki-s\\Tabemory\\wwwroot\\images\\book.jpg",
+      "SourceId": "Tabemory",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\wind1\\source\\repos\\arki-s\\Tabemory\\wwwroot\\",
+      "BasePath": "_content/Tabemory",
+      "RelativePath": "images/book.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\book.jpg"
     },
     {
       "Identity": "C:\\Users\\wind1\\source\\repos\\arki-s\\Tabemory\\wwwroot\\images\\coffee.png",

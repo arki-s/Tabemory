@@ -197,6 +197,10 @@
       "PackagePath": "staticwebassets\\images\\basel.jpg"
     },
     {
+      "Id": "C:\\Users\\wind1\\source\\repos\\arki-s\\Tabemory\\wwwroot\\images\\book.jpg",
+      "PackagePath": "staticwebassets\\images\\book.jpg"
+    },
+    {
       "Id": "C:\\Users\\wind1\\source\\repos\\arki-s\\Tabemory\\wwwroot\\images\\coffee.png",
       "PackagePath": "staticwebassets\\images\\coffee.png"
     },
