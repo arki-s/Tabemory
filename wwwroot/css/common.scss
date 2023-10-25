@@ -160,9 +160,9 @@ a:hover {
     background: white;
     opacity: 0.9;
     border-radius: 12px;
-    animation: fadeIn 0.5s ease 0.5s 1 normal backwards;
+    animation: fadeInn 0.5s ease 0.5s 1 normal backwards;
 
-    @keyframes fadeIn {
+    @keyframes fadeInn {
         from {
             opacity: 0;
             transform: translateX(20px);
@@ -176,10 +176,28 @@ a:hover {
 }
 
 .title-container {
-    margin:12px;
-    padding:12px;
-    display:flex;
-    justify-content:center;
+    margin: 12px;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+
+    p {
+        font-weight: bold;
+    }
+
+    img {
+        margin: 12px;
+        width: 220px;
+        height: 220px;
+    }
+
+    @media (min-width: 100px) and (max-width: 767px) {
+
+        img {
+            width: 0px;
+            height: 0px;
+        }
+    }
 }
 
 .contents-box {
@@ -188,7 +206,20 @@ a:hover {
 }
 
 .detail-container {
-    border-radius:12px;
-    background:white;
-    opacity:0.9;
+    border-radius: 12px;
+    background: white;
+    opacity: 0.9;
+    animation: fadeInnn 0.7s ease 0.5s 1 normal backwards;
+
+    @keyframes fadeInnn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 0.9;
+            transform: translateY(0);
+        }
+    }
 }

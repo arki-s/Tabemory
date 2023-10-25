@@ -201,6 +201,10 @@
       "PackagePath": "staticwebassets\\images\\coffee.png"
     },
     {
+      "Id": "C:\\Users\\wind1\\source\\repos\\arki-s\\Tabemory\\wwwroot\\images\\coffeepc.jpg",
+      "PackagePath": "staticwebassets\\images\\coffeepc.jpg"
+    },
+    {
       "Id": "C:\\Users\\wind1\\source\\repos\\arki-s\\Tabemory\\wwwroot\\images\\croatia.jpg",
       "PackagePath": "staticwebassets\\images\\croatia.jpg"
     },

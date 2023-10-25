@@ -145,9 +145,9 @@ a:hover {
   background: white;
   opacity: 0.9;
   border-radius: 12px;
-  animation: fadeIn 0.5s ease 0.5s 1 normal backwards;
+  animation: fadeInn 0.5s ease 0.5s 1 normal backwards;
 }
-@keyframes fadeIn {
+@keyframes fadeInn {
   from {
     opacity: 0;
     transform: translateX(20px);
@@ -164,6 +164,20 @@ a:hover {
   display: flex;
   justify-content: center;
 }
+.title-container p {
+  font-weight: bold;
+}
+.title-container img {
+  margin: 12px;
+  width: 220px;
+  height: 220px;
+}
+@media (min-width: 100px) and (max-width: 767px) {
+  .title-container img {
+    width: 0px;
+    height: 0px;
+  }
+}
 
 .contents-box {
   margin: auto;
@@ -174,4 +188,15 @@ a:hover {
   border-radius: 12px;
   background: white;
   opacity: 0.9;
+  animation: fadeInnn 0.7s ease 0.5s 1 normal backwards;
+}
+@keyframes fadeInnn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 0.9;
+    transform: translateY(0);
+  }
 }

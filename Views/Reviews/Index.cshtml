@@ -6,6 +6,8 @@
     ViewData["Title"] = "Index";
     var loginUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 }
+<div class="contents-container">
+<h1 class="page-title">レビュー履歴</h1>
 
 @if (TempData["AlertMessage"] != null)
 {
@@ -15,56 +17,51 @@
     </div>
 }
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.VisitDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rating)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Comment)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Record)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+
+
+
         @foreach (var item in Model)
         {
-            @if (item.Record.UserId == loginUserId) { 
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.VisitDate)
-                </td>
-                <td>
-                    @{
-                        string stars = new String('★', item.Rating);
-                    }
-                    @stars
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Comment)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Record.Name)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.ReviewId"><i class="fa-solid fa-pen" style="color: #50e196; font-size:24px; margin-right:12px;"></i></a>
+        @if (item.Record.UserId == loginUserId) {
+
+             string stars = new String('★', item.Rating);
+
+            <div class="restaurant-card">
+                <div class="d-flex justify-content-between">
+
+                    <div>
+                        <h4 class="fw-bold"><a asp-controller="Records" asp-action="Details" asp-route-id="@item.Record.RecordId" class="text-center">@Html.DisplayFor(modelItem => item.Record.Name)</a></h4>
+                        @* <p class="fw-bold">@Html.DisplayFor(modelItem => item.Record.Name)</p> *@
+                        <p>@Html.DisplayFor(modelItem => item.VisitDate) @stars </p>
+                        <p>@Html.DisplayFor(modelItem => item.Comment)</p>
+                    </div>
+
+                    <div class="d-flex flex-column justify-content-between">
+                    <a asp-action="Edit" asp-route-id="@item.ReviewId"><button class="btn btn-warning">編集</button></a>
                         <form asp-controller="Reviews" asp-action="Delete" onSubmit="return check()">
                             <input type="hidden" name="id" value="@item.ReviewId" />
                             <input type="submit" value="削除" class="btn btn-warning" />
                         </form>
-                </td>
-            </tr>
+                </div>
+                </div>
+            </div>
             }
         }
-    </tbody>
-</table>
+
+
+</div>
+
+<style>
+    html, body {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0,0,0,0.3)), url(/images/coffeepc.jpg);
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: 100%;
+    }
+
+</style>
 
 <script>
     function check() {
