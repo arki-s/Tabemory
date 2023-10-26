@@ -26,7 +26,7 @@ namespace Tabemory.Controllers
         {
             return _context.Record != null ?
                          View(await _context.Record.ToListAsync()) :
-                         Problem("Entity set 'CookingRecipesContext.Recipe'  is null.");
+                         Problem("Entity set 'TabemoryDbContext.Recipe'  is null.");
         }
 
 
