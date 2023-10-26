@@ -200,3 +200,9 @@ a:hover {
     transform: translateY(0);
   }
 }
+
+.logo {
+  position: absolute;
+  top: 140px;
+  right: 10px;
+}

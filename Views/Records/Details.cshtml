@@ -8,6 +8,8 @@
     DotNetEnv.Env.Load(".env");
     var key = DotNetEnv.Env.GetString("MAPBOX_API_KEY");
 }
+
+
 <div class="contents-container">
     <div class="detail-container">
 @if (Model.Record.UserId != loginUserId)
@@ -101,10 +103,9 @@
             </div>
         </form>
     </div>
+}
     </div>
 </div>
-}
-
 
 
 <style>
